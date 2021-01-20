@@ -1,0 +1,524 @@
+###############################################################################
+#
+# IAR ELF Linker V8.50.6.265/W32 for ARM                  14/Jan/2021  00:07:04
+# Copyright 2007-2020 IAR Systems AB.
+#
+#    Output file  =
+#        D:\Ahmed UNI stuff\Micro\Projects\Final Project\Debug\Exe\Traffic.out
+#    Map file     =
+#        D:\Ahmed UNI stuff\Micro\Projects\Final Project\Debug\List\Traffic.map
+#    Command line =
+#        -f C:\Users\pc\AppData\Local\Temp\EW6D54.tmp ("D:\Ahmed UNI
+#        stuff\Micro\Projects\Final Project\Debug\Obj\main.o" "D:\Ahmed UNI
+#        stuff\Micro\Projects\Final Project\Debug\Obj\startup_ewarm.o"
+#        --no_out_extension -o "D:\Ahmed UNI stuff\Micro\Projects\Final
+#        Project\Debug\Exe\Traffic.out" --redirect _Printf=_PrintfFullNoMb
+#        --redirect _Scanf=_ScanfFullNoMb --map "D:\Ahmed UNI
+#        stuff\Micro\Projects\Final Project\Debug\List\Traffic.map" --config
+#        "D:\Ahmed UNI stuff\Micro\Projects\Final Project\Traffic.icf"
+#        --semihosting
+#        C:\ti\TivaWare_C_Series-2.2.0.295\driverlib\ccs\Debug\driverlib.lib
+#        --entry __iar_program_start --vfe --enable_stack_usage --text_out
+#        locale)
+#
+###############################################################################
+
+*******************************************************************************
+*** MESSAGES
+***
+
+Warning[Lt009]: Inconsistent wchar_t size
+            gpio.obj(driverlib.lib) and 5 other objects in driverlib.lib have
+                      wchar_t size 16 bits
+            main.o and 14 other objects, some of them in dl7M_tln.a and 11
+                      other libraries have wchar_t size 32 bits
+Warning[Ls018]: [stack usage analysis] the function "__iar_program_start" is a
+          call graph root, but there are calls to it
+Warning[Ls014]: [stack usage analysis] at least one function does not have
+          stack usage information. Example: "GPIODirModeSet". A complete list
+          of such functions is in the map file.
+Warning[Ls015]: [stack usage analysis] at least one function appears to be
+          uncalled. Example: "ButtonEastHandler". A complete list of uncalled
+          functions is in the map file.
+
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because some modules are built with
+size limitations (and not runtime checking), and --advanced_heap
+was not specified.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3'ffff] { ro };
+define block CSTACK with size = 1K, alignment = 8 { };
+define block HEAP with size = 1K, alignment = 8 { };
+"P2":  place in [from 0x2000'0000 to 0x2000'7fff] {
+          rw, block CSTACK, block HEAP };
+do not initialize { rw section .noinit };
+initialize by copy { rw };
+
+  Section                 Kind         Address    Size  Object
+  -------                 ----         -------    ----  ------
+"A0":                                            0x26c
+  .intvec                 const            0x0   0x26c  startup_ewarm.o [1]
+                                       - 0x26c   0x26c
+
+"P1":                                           0x144c
+  .text                   ro code        0x26c   0x718  main.o [1]
+  .text:SysCtlPeripheralEnable
+                          ro code        0x984    0x34  sysctl.obj [3]
+  .text:SysCtlPeripheralReady
+                          ro code        0x9b8    0x38  sysctl.obj [3]
+  .text:GPIOPinTypeGPIOOutput
+                          ro code        0x9f0    0x1a  gpio.obj [3]
+  .text:GPIOPinTypeGPIOInput
+                          ro code        0xa0a    0x16  gpio.obj [3]
+  .text:GPIOPadConfigSet  ro code        0xa20   0x16c  gpio.obj [3]
+  .text:GPIOIntTypeSet    ro code        0xb8c    0x58  gpio.obj [3]
+  .text:IntMasterDisable  ro code        0xbe4    0x10  interrupt.obj [3]
+  .text:IntDisable        ro code        0xbf4    0x68  interrupt.obj [3]
+  .text:GPIOIntDisable    ro code        0xc5c     0xe  gpio.obj [3]
+  .text:GPIOIntClear      ro code        0xc6a     0x6  gpio.obj [3]
+  .text:GPIOIntRegister   ro code        0xc70    0x18  gpio.obj [3]
+  .text:GPIOIntEnable     ro code        0xc88     0xc  gpio.obj [3]
+  .text:IntPrioritySet    ro code        0xc94    0x24  interrupt.obj [3]
+  .text:IntEnable         ro code        0xcb8    0x68  interrupt.obj [3]
+  .text:IntMasterEnable   ro code        0xd20    0x10  interrupt.obj [3]
+  .text:GPIOPinWrite      ro code        0xd30     0x6  gpio.obj [3]
+  .text                   ro code        0xd36    0x3a  zero_init3.o [5]
+  .text:TimerDisable      ro code        0xd70    0x18  timer.obj [3]
+  .text:TimerConfigure    ro code        0xd88    0x60  timer.obj [3]
+  .text:TimerControlStall
+                          ro code        0xde8    0x18  timer.obj [3]
+  .text:TimerIntClear     ro code        0xe00     0x4  timer.obj [3]
+  .text:TimerIntEnable    ro code        0xe04     0x8  timer.obj [3]
+  .text:TimerIntRegister  ro code        0xe0c    0x18  timer.obj [3]
+  .text:TimerLoadSet      ro code        0xe24    0x12  timer.obj [3]
+  .text                   ro code        0xe36    0x2e  copy_init3.o [5]
+  .text:GPIOPinConfigure  ro code        0xe64    0x4c  gpio.obj [3]
+  .text:GPIOPinTypeUART   ro code        0xeb0    0x16  gpio.obj [3]
+  .text:SysCtlClockGet    ro code        0xec8   0x118  sysctl.obj [3]
+  .text:UARTConfigSetExpClk
+                          ro code        0xfe0    0x46  uart.obj [3]
+  .text:UARTEnable        ro code       0x1026    0x14  uart.obj [3]
+  .text:TimerEnable       ro code       0x103a     0xe  timer.obj [3]
+  .text:TimerValueGet     ro code       0x1048     0xa  timer.obj [3]
+  .text:UARTCharPut       ro code       0x1052     0xa  uart.obj [3]
+  .text:GPIODirModeSet    ro code       0x105c    0x2c  gpio.obj [3]
+  .text:CPUcpsid          ro code       0x1088     0xc  cpu.obj [3]
+  .text:_GPIOIntNumberGet
+                          ro code       0x1094    0x44  gpio.obj [3]
+  .text:IntRegister       ro code       0x10d8    0x34  interrupt.obj [3]
+  .text:CPUcpsie          ro code       0x110c     0xc  cpu.obj [3]
+  .text:_TimerIntNumberGet
+                          ro code       0x1118    0x4c  timer.obj [3]
+  .text:UARTDisable       ro code       0x1164    0x20  uart.obj [3]
+  .const:g_ppui32GPIOIntMapSnowflake
+                          const         0x1184    0xd8  gpio.obj [3]
+  .const:g_ppui32GPIOIntMapBlizzard
+                          const         0x125c    0xc0  gpio.obj [3]
+  .const:g_pui32Regs      const         0x131c    0x9c  interrupt.obj [3]
+  .const:g_pui32GPIOBaseAddrs
+                          const         0x13b8    0x90  gpio.obj [3]
+  .const:g_pui32Xtals     const         0x1448    0x6c  sysctl.obj [3]
+  .const:g_ppui32TimerIntMap
+                          const         0x14b4    0x60  timer.obj [3]
+  .const:g_ppui32TimerIntMapSnowflake
+                          const         0x1514    0x40  timer.obj [3]
+  .text                   ro code       0x1554    0x28  data_init.o [5]
+  .text                   ro code       0x157c    0x22  fpinit_M.o [4]
+  .iar.init_table         const         0x15a0    0x24  - Linker created -
+  .text                   ro code       0x15c4    0x1e  startup_ewarm.o [1]
+  .text                   ro code       0x15e2     0xc  cstartup_M.o [5]
+  .text                   ro code       0x15f0    0x1e  cmain.o [5]
+  .text                   ro code       0x160e     0x4  low_level_init.o [2]
+  .text                   ro code       0x1612     0x4  exit.o [2]
+  .text                   ro code       0x1618     0xa  cexit.o [5]
+  .text                   ro code       0x1624    0x14  exit.o [6]
+  .rodata                 const         0x1638    0x18  main.o [1]
+  .rodata                 const         0x1650    0x18  main.o [1]
+  .const:g_pui32Dii16Regs
+                          const         0x1668    0x14  interrupt.obj [3]
+  .const:g_pui32EnRegs    const         0x167c    0x14  interrupt.obj [3]
+  .rodata                 const         0x1690    0x14  main.o [1]
+  .rodata                 const         0x16a4    0x10  main.o [1]
+  Initializer bytes       const         0x16b4     0x4  <for P2-1>
+  .rodata                 const         0x16b8     0x0  zero_init3.o [5]
+  .rodata                 const         0x16b8     0x0  copy_init3.o [5]
+                                      - 0x16b8  0x144c
+
+"P2", part 1 of 3:                                 0x4
+  P2-1                             0x2000'0000     0x2  <Init block>
+    .data                 inited   0x2000'0000     0x1  main.o [1]
+    .data                 inited   0x2000'0001     0x1  main.o [1]
+                                 - 0x2000'0002     0x2
+
+"P2", part 2 of 3:                               0x668
+  .vtable                 zero     0x2000'0400   0x26c  interrupt.obj [3]
+                                 - 0x2000'066c   0x668
+
+"P2", part 3 of 3:                               0x200
+  .noinit                 uninit   0x2000'066c   0x200  startup_ewarm.o [1]
+                                 - 0x2000'086c   0x200
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+       0x16b8     0x3'ffff  0x3'e948
+  0x2000'086c  0x2000'7fff    0x7794
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x26c:
+          0x2000'0400  0x26c
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x4 (200% of destination):
+               0x16b4    0x4
+    1 destination range, total size 0x2:
+          0x2000'0000    0x2
+
+
+*******************************************************************************
+*** STACK USAGE
+***
+
+  Call Graph Root Category  Max Use  Total Use
+  ------------------------  -------  ---------
+  Program entry                 40         40
+  Uncalled function             48        200
+
+
+Program entry
+  "__iar_program_start": 0x15e3
+
+  Maximum call chain                                *?* 40  bytes
+    (** call graph contains functions with no stack usage info (example: "SysCtlPeripheralEnable") **)
+
+    "__iar_program_start"                                0
+    "__cmain"                                            0
+    "main"                                               8
+    "setupPedestrianSystem"                             16
+    "setupPTimer"                                       16
+    "SysCtlPeripheralEnable"                    - no info -
+
+Uncalled function
+  "ButtonEastHandler": 0x6f1
+
+  Maximum call chain                                *?* 48  bytes
+    (** call graph contains functions with no stack usage info (example: "IntMasterDisable") **)
+
+    "ButtonEastHandler"                                 32
+    "PedestrianDelay"                                   16
+    "IntMasterDisable"                          - no info -
+
+Uncalled function
+  "ButtonNorthHandler": 0x661
+
+  Maximum call chain                                *?* 40  bytes
+    (** call graph contains functions with no stack usage info (example: "IntMasterDisable") **)
+
+    "ButtonNorthHandler"                                24
+    "PedestrianDelay"                                   16
+    "IntMasterDisable"                          - no info -
+
+Uncalled function
+  "EastTimerHandler": 0x61d
+
+  Maximum call chain                                *?* 32  bytes
+    (** call graph contains functions with no stack usage info (example: "TimerDisable") **)
+
+    "EastTimerHandler"                                   8
+    "TrafficNorthGREEN"                                  8
+    "TrafficNorthDelay"                                 16
+    "TimerDisable"                              - no info -
+
+Uncalled function
+  "NorthTimerHandler": 0x5d9
+
+  Maximum call chain                                *?* 32  bytes
+    (** call graph contains functions with no stack usage info (example: "TimerDisable") **)
+
+    "NorthTimerHandler"                                  8
+    "TrafficNorthYELLOW"                                 8
+    "TrafficEastDelay"                                  16
+    "TimerDisable"                              - no info -
+
+Uncalled function
+  "FaultISR" in startup_ewarm.o [1]: 0x15df
+
+  Maximum call chain                                0  bytes
+
+    "FaultISR" in startup_ewarm.o [1]               0
+
+Uncalled function
+  "IntDefaultHandler" in startup_ewarm.o [1]: 0x15e1
+
+  Maximum call chain                                0  bytes
+
+    "IntDefaultHandler" in startup_ewarm.o [1]      0
+
+Uncalled function
+  "NmiSR" in startup_ewarm.o [1]: 0x15dd
+
+  Maximum call chain                                0  bytes
+
+    "NmiSR" in startup_ewarm.o [1]                  0
+
+Uncalled function
+  "ResetISR": 0x15c5
+
+  Maximum call chain                                *?* 48  bytes
+    (** call graph contains functions with no stack usage info (example: "SysCtlPeripheralEnable") **)
+
+    "ResetISR"                                           8
+    "__iar_program_start"                                0
+    "__cmain"                                            0
+    "main"                                               8
+    "setupPedestrianSystem"                             16
+    "setupPTimer"                                       16
+    "SysCtlPeripheralEnable"                    - no info -
+
+The following functions appear not to be called and have no stack
+usage information:
+
+  "CPUcpsid": 0x1089
+  "CPUcpsie": 0x110d
+  "GPIODirModeSet": 0x105d
+  "IntRegister": 0x10d9
+  "UARTDisable": 0x1165
+
+The following functions appear to be called, but have no stack
+usage information:
+
+  "GPIOIntClear": 0xc6b
+  "GPIOIntDisable": 0xc5d
+  "GPIOIntEnable": 0xc89
+  "GPIOIntRegister": 0xc71
+  "GPIOIntTypeSet": 0xb8d
+  "GPIOPadConfigSet": 0xa21
+  "GPIOPinConfigure": 0xe65
+  "GPIOPinTypeGPIOInput": 0xa0b
+  "GPIOPinTypeGPIOOutput": 0x9f1
+  "GPIOPinTypeUART": 0xeb1
+  "GPIOPinWrite": 0xd31
+  "IntDisable": 0xbf5
+  "IntEnable": 0xcb9
+  "IntMasterDisable": 0xbe5
+  "IntMasterEnable": 0xd21
+  "IntPrioritySet": 0xc95
+  "SysCtlClockGet": 0xec9
+  "SysCtlPeripheralEnable": 0x985
+  "SysCtlPeripheralReady": 0x9b9
+  "TimerConfigure": 0xd89
+  "TimerControlStall": 0xde9
+  "TimerDisable": 0xd71
+  "TimerEnable": 0x103b
+  "TimerIntClear": 0xe01
+  "TimerIntEnable": 0xe05
+  "TimerIntRegister": 0xe0d
+  "TimerLoadSet": 0xe25
+  "TimerValueGet": 0x1049
+  "UARTCharPut": 0x1053
+  "UARTConfigSetExpClk": 0xfe1
+  "UARTEnable": 0x1027
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module            ro code  ro data  rw data
+    ------            -------  -------  -------
+command line/config:
+    -------------------------------------------
+    Total:
+
+D:\Ahmed UNI stuff\Micro\Projects\Final Project\Debug\Obj: [1]
+    main.o              1'816       86        2
+    startup_ewarm.o        30      620      512
+    -------------------------------------------
+    Total:              1'846      706      514
+
+dl7M_tln.a: [2]
+    exit.o                  4
+    low_level_init.o        4
+    -------------------------------------------
+    Total:                  8
+
+driverlib.lib: [3]
+    cpu.obj                24
+    gpio.obj              772      552
+    interrupt.obj         328      196      620
+    sysctl.obj            388      108
+    timer.obj             298      160
+    uart.obj              132
+    -------------------------------------------
+    Total:              1'942    1'016      620
+
+m7M_tlv.a: [4]
+    fpinit_M.o             34
+    -------------------------------------------
+    Total:                 34
+
+rt7M_tl.a: [5]
+    cexit.o                10
+    cmain.o                30
+    copy_init3.o           46
+    cstartup_M.o           12
+    data_init.o            40
+    zero_init3.o           58
+    -------------------------------------------
+    Total:                196
+
+shb_l.a: [6]
+    exit.o                 20
+    -------------------------------------------
+    Total:                 20
+
+    Gaps                    8        2    1'020
+    Linker created                  38
+-----------------------------------------------
+    Grand Total:        4'054    1'762    2'154
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base        0x15a0          --   Gb  - Linker created -
+.iar.init_table$$Limit       0x15c4          --   Gb  - Linker created -
+?main                        0x15f1         Code  Gb  cmain.o [5]
+ButtonEastHandler             0x6f1   0x92  Code  Gb  main.o [1]
+ButtonNorthHandler            0x661   0x8e  Code  Gb  main.o [1]
+CPUcpsid                     0x1089    0xc  Code  Gb  cpu.obj [3]
+CPUcpsie                     0x110d    0xc  Code  Gb  cpu.obj [3]
+EastState               0x2000'0001    0x1  Data  Gb  main.o [1]
+EastTimerHandler              0x61d   0x42  Code  Gb  main.o [1]
+FaultISR                     0x15df    0x2  Code  Lc  startup_ewarm.o [1]
+GPIODirModeSet               0x105d   0x2c  Code  Gb  gpio.obj [3]
+GPIOIntClear                  0xc6b    0x6  Code  Gb  gpio.obj [3]
+GPIOIntDisable                0xc5d    0xe  Code  Gb  gpio.obj [3]
+GPIOIntEnable                 0xc89    0xc  Code  Gb  gpio.obj [3]
+GPIOIntRegister               0xc71   0x18  Code  Gb  gpio.obj [3]
+GPIOIntTypeSet                0xb8d   0x58  Code  Gb  gpio.obj [3]
+GPIOPadConfigSet              0xa21  0x160  Code  Gb  gpio.obj [3]
+GPIOPinConfigure              0xe65   0x44  Code  Gb  gpio.obj [3]
+GPIOPinTypeGPIOInput          0xa0b   0x16  Code  Gb  gpio.obj [3]
+GPIOPinTypeGPIOOutput         0x9f1   0x1a  Code  Gb  gpio.obj [3]
+GPIOPinTypeUART               0xeb1   0x16  Code  Gb  gpio.obj [3]
+GPIOPinWrite                  0xd31    0x6  Code  Gb  gpio.obj [3]
+IntDefaultHandler            0x15e1    0x2  Code  Lc  startup_ewarm.o [1]
+IntDisable                    0xbf5   0x5c  Code  Gb  interrupt.obj [3]
+IntEnable                     0xcb9   0x5c  Code  Gb  interrupt.obj [3]
+IntMasterDisable              0xbe5   0x10  Code  Gb  interrupt.obj [3]
+IntMasterEnable               0xd21   0x10  Code  Gb  interrupt.obj [3]
+IntPrioritySet                0xc95   0x20  Code  Gb  interrupt.obj [3]
+IntRegister                  0x10d9   0x2a  Code  Gb  interrupt.obj [3]
+NmiSR                        0x15dd    0x2  Code  Lc  startup_ewarm.o [1]
+NorthState              0x2000'0000    0x1  Data  Gb  main.o [1]
+NorthTimerHandler             0x5d9   0x44  Code  Gb  main.o [1]
+PedestrianDelay               0x58d   0x4a  Code  Gb  main.o [1]
+Region$$Table$$Base          0x15a0          --   Gb  - Linker created -
+Region$$Table$$Limit         0x15c4          --   Gb  - Linker created -
+ResetISR                     0x15c5   0x12  Code  Gb  startup_ewarm.o [1]
+SysCtlClockGet                0xec9  0x102  Code  Gb  sysctl.obj [3]
+SysCtlPeripheralEnable        0x985   0x2e  Code  Gb  sysctl.obj [3]
+SysCtlPeripheralReady         0x9b9   0x32  Code  Gb  sysctl.obj [3]
+TimerConfigure                0xd89   0x4e  Code  Gb  timer.obj [3]
+TimerControlStall             0xde9   0x18  Code  Gb  timer.obj [3]
+TimerDisable                  0xd71   0x14  Code  Gb  timer.obj [3]
+TimerEnable                  0x103b    0xe  Code  Gb  timer.obj [3]
+TimerIntClear                 0xe01    0x4  Code  Gb  timer.obj [3]
+TimerIntEnable                0xe05    0x8  Code  Gb  timer.obj [3]
+TimerIntRegister              0xe0d   0x18  Code  Gb  timer.obj [3]
+TimerLoadSet                  0xe25   0x12  Code  Gb  timer.obj [3]
+TimerValueGet                0x1049    0xa  Code  Gb  timer.obj [3]
+TrafficEastDelay              0x55d   0x30  Code  Gb  main.o [1]
+TrafficEastGREEN              0x823   0x40  Code  Gb  main.o [1]
+TrafficEastRED                0x893   0x30  Code  Gb  main.o [1]
+TrafficEastYELLOW             0x863   0x30  Code  Gb  main.o [1]
+TrafficNorthDelay             0x52d   0x30  Code  Gb  main.o [1]
+TrafficNorthGREEN             0x783   0x40  Code  Gb  main.o [1]
+TrafficNorthRED               0x7f3   0x30  Code  Gb  main.o [1]
+TrafficNorthYELLOW            0x7c3   0x30  Code  Gb  main.o [1]
+UARTCharPut                  0x1053    0xa  Code  Gb  uart.obj [3]
+UARTConfigSetExpClk           0xfe1   0x46  Code  Gb  uart.obj [3]
+UARTDisable                  0x1165   0x1a  Code  Gb  uart.obj [3]
+UARTEnable                   0x1027   0x14  Code  Gb  uart.obj [3]
+__cmain                      0x15f1         Code  Gb  cmain.o [5]
+__exit                       0x1625   0x14  Code  Gb  exit.o [6]
+__iar_copy_init3              0xe37   0x2e  Code  Gb  copy_init3.o [5]
+__iar_data_init3             0x1555   0x28  Code  Gb  data_init.o [5]
+__iar_init_vfp               0x157d         Code  Gb  fpinit_M.o [4]
+__iar_program_start          0x15e3         Code  Gb  cstartup_M.o [5]
+__iar_zero_init3              0xd37   0x3a  Code  Gb  zero_init3.o [5]
+__low_level_init             0x160f    0x4  Code  Gb  low_level_init.o [2]
+__vector_table                  0x0  0x26c  Data  Gb  startup_ewarm.o [1]
+_call_main                   0x15fd         Code  Gb  cmain.o [5]
+_exit                        0x1619         Code  Gb  cexit.o [5]
+_main                        0x160b         Code  Gb  cmain.o [5]
+exit                         0x1613    0x4  Code  Gb  exit.o [2]
+g_pfnRAMVectors         0x2000'0400  0x26c  Data  Gb  interrupt.obj [3]
+g_ppui32GPIOIntMapBlizzard
+                             0x125c   0xc0  Data  Lc  gpio.obj [3]
+g_ppui32GPIOIntMapSnowflake
+                             0x1184   0xd8  Data  Lc  gpio.obj [3]
+g_ppui32TimerIntMap          0x14b4   0x60  Data  Lc  timer.obj [3]
+g_ppui32TimerIntMapSnowflake
+                             0x1514   0x40  Data  Lc  timer.obj [3]
+g_pui32Dii16Regs             0x1668   0x14  Data  Lc  interrupt.obj [3]
+g_pui32EnRegs                0x167c   0x14  Data  Lc  interrupt.obj [3]
+g_pui32GPIOBaseAddrs         0x13b8   0x90  Data  Lc  gpio.obj [3]
+g_pui32Regs                  0x131c   0x9c  Data  Lc  interrupt.obj [3]
+g_pui32Xtals                 0x1448   0x6c  Data  Lc  sysctl.obj [3]
+main                          0x8ed   0x30  Code  Gb  main.o [1]
+printUART                     0x8c3   0x2a  Code  Gb  main.o [1]
+pui32Stack              0x2000'066c  0x200  Data  Lc  startup_ewarm.o [1]
+setupEastTimer                0x409   0x54  Code  Gb  main.o [1]
+setupEastTraffic              0x293   0x26  Code  Gb  main.o [1]
+setupNorthTimer               0x3b5   0x54  Code  Gb  main.o [1]
+setupNorthTraffic             0x26d   0x26  Code  Gb  main.o [1]
+setupPTimer                   0x45d   0x78  Code  Gb  main.o [1]
+setupPedestrianSystem         0x2b9   0xfc  Code  Gb  main.o [1]
+setupUART                     0x4d5   0x58  Code  Gb  main.o [1]
+
+
+[1] = D:\Ahmed UNI stuff\Micro\Projects\Final Project\Debug\Obj
+[2] = dl7M_tln.a
+[3] = driverlib.lib
+[4] = m7M_tlv.a
+[5] = rt7M_tl.a
+[6] = shb_l.a
+
+  4'054 bytes of readonly  code memory
+  1'762 bytes of readonly  data memory
+  2'154 bytes of readwrite data memory
+
+Errors: none
+Warnings: 4
